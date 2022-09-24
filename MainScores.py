@@ -11,14 +11,14 @@ if getattr(sys, 'frozen', False):
 else:
     app = Flask("Score")
 
+
+def app_run(app):
+    app.run(host="0.0.0.0", port=8777, debug=False)
+
+
 @app.route('/')
 def score_server():
-    if getattr(sys, 'frozen', False):
-        template_folder = os.path.join(sys._MEIPASS, 'templates')
-        static_folder = os.path.join(sys._MEIPASS, 'static')
-        app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
-    else:
-        app = Flask("Score")
+    app_run(Flask(__name__, template_folder='template_folder', static_folder='dsada'))
     try:
         file = open(f"{utils.get_score_file_name()}", "r")
         SCORE = file.readline()
@@ -32,7 +32,5 @@ def score_server():
         ERROR=utils.bad_return()
         return render_template('error.html' , title='Scores Game', ERROR=ERROR)
     return render_template('index.html', title='Scores Game', SCORE=SCORE)
-
-app.run(host="0.0.0.0", port=8777, debug=False)
 
 
