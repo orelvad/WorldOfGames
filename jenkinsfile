@@ -1,0 +1,33 @@
+properties([pipelineTriggers([cron('0 2 * * *')])])
+pipeline{
+    agent any
+    stages{
+    stage("Checkout the repository"){
+        steps{
+            git "https://github.com/orelvad/WorldOfGames.git"
+        }
+    }
+    stage("build docker image"){
+        steps{
+            sh "docker build --tag flaskk ."
+        }
+    }
+    stage("run docker image"){
+        steps{
+            sh "docker-compose up"
+        }
+    }
+    stage("Verify"){
+        steps{
+            sh "python e2e.py"
+        }
+      }
+     stage("Push to Dockerhub"){
+        steps{
+            sh "docker tag flaskk:1.0 orelvad/flaskk:1.0"
+			sh "echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin"
+			sh "docker push orelvad/flaskk:1.0"
+        }
+    }
+}
+

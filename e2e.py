@@ -12,7 +12,7 @@ def test_score_services (url):
 
 
 def main_function():
-    if test_score_services("http://localhost:5001"):
+    if test_score_services("http://localhost:8777"):
         return 0
     else:
         try : raise Exception('ÓS exit code')

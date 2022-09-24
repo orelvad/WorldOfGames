@@ -33,6 +33,6 @@ def score_server():
         return render_template('error.html' , title='Scores Game', ERROR=ERROR)
     return render_template('index.html', title='Scores Game', SCORE=SCORE)
 
-app.run(host="0.0.0.0", port=5001, debug=False)
+app.run(host="0.0.0.0", port=8777, debug=False)
 
 
