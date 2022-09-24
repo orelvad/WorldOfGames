@@ -4,5 +4,5 @@ services:
    # command: ["sleep", "100000"]
     #image: "orelvad/flaskk:latest"
   node1:
-    image: "orelvad/flaskk:v1"
+    image: "orelvad/flaskk:v1.0"
 
