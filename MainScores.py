@@ -3,14 +3,7 @@ from flask import Flask, render_template
 import utils
 import os
 import sys
-
-if getattr(sys, 'frozen', False):
-    template_folder = os.path.join(sys._MEIPASS, 'templates')
-    static_folder = os.path.join(sys._MEIPASS, 'static')
-    app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
-else:
-    app = Flask("Score")
-
+app=Flask(__name__, template_folder='templates', static_folder='static')
 
 def app_run(app):
     app.run(host="0.0.0.0", port=8777, debug=False)
@@ -18,7 +11,7 @@ def app_run(app):
 
 @app.route('/')
 def score_server():
-    app_run(Flask(__name__, template_folder='template_folder', static_folder='dsada'))
+    app_run(app)
     try:
         file = open(f"{utils.get_score_file_name()}", "r")
         SCORE = file.readline()
