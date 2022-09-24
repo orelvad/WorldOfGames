@@ -9,7 +9,7 @@ pipeline{
     }
     stage("build docker image"){
         steps{
-            sh "docker build --tag flaskk ."
+            sh "build WorldOfGames. -t orelvad/flaskk:v1.0"
         }
     }
     stage("run docker image"){
