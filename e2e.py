@@ -11,7 +11,7 @@ def test_score_services (url):
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument("--window-size=1920,1080")
-    my_driver = webdriver.Chrome(options=chrome_options)
+    my_driver = webdriver.Chrome('/', options=chrome_options)
     my_driver.implicitly_wait(10)
     #my_driver = webdriver.Remote()
     my_driver.get(url)
