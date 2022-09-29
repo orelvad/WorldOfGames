@@ -5,7 +5,15 @@ import sys
 #from flask import Flask
 
 def test_score_services (url):
-    my_driver = webdriver.Remote()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument("--window-size=1920,1080")
+    my_driver = webdriver.Chrome(options=chrome_options)
+    my_driver.implicitly_wait(10)
+    #my_driver = webdriver.Remote()
     my_driver.get(url)
     if 0 < int(my_driver.find_element(By.ID,"score").text) < 1001:
         print("true")
