@@ -7,7 +7,7 @@ def bad_return():
 
 
 def get_score_file_name():
-    SCORES_FILE_NAME="Scores.txt"
+    SCORES_FILE_NAME= "Scores.txt"
     return SCORES_FILE_NAME
 
 
