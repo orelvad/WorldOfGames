@@ -19,7 +19,8 @@ pipeline{
     }
     stage("Verify"){
         steps{
-            bat "python e2e.py"
+            bat "docker cp /e2e.py worldofgames-node1-1:/"
+			bat "docker exec worldofgames-node1-1 python e2e.py"
             bat '$?'
         }
       }
