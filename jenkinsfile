@@ -20,7 +20,7 @@ pipeline{
     stage("Verify"){
         steps{
             bat "python e2e.py"
-            bat "$?"
+            bat '$?'
         }
       }
 	
