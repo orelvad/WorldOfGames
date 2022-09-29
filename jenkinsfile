@@ -21,6 +21,7 @@ pipeline{
         steps{
             bat "docker cp e2e.py worldofgames-node1-1:/"
             bat "docker cp chromedriver.exe worldofgames-node1-1:/"
+            bat "docker exec worldofgames-node1-1 pip install webdriver-manager"
             bat "docker exec worldofgames-node1-1 chmod 777 chromedriver.exe"
             bat "docker exec worldofgames-node1-1 pip install selenium"
 			bat "docker exec worldofgames-node1-1 python e2e.py"
