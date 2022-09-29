@@ -5,7 +5,7 @@ import sys
 #from flask import Flask
 
 def test_score_services (url):
-    my_driver = webdriver.Chrome()
+    my_driver = webdriver.Remote()
     my_driver.get(url)
     if 0 < int(my_driver.find_element(By.ID,"score").text) < 1001:
         print("true")
