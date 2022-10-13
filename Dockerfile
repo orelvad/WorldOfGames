@@ -1,6 +1,7 @@
 FROM python:3-alpine
 COPY /Scores.txt /Scores.txt
 COPY /MainScores.py /MainScores.py
+COPY /templates /templates
 RUN pip install flask
 RUN pip install utils
 EXPOSE 8777/udp
