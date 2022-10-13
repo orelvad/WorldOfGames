@@ -5,4 +5,6 @@ services:
     #image: "orelvad/flaskk:latest"
   node1:
     image: "orelvad/flaskk:v1.0"
+    ports:
+      - "8777:8777"
 
