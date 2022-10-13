@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from webdriver_manager import chrome
 import sys
 #import MainScores
 #from flask import Flask
@@ -12,9 +11,7 @@ def test_score_services (url):
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument("--window-size=1920,1080")
-    print(chrome.ChromeDriverManager().install())
-    my_driver = webdriver.Chrome(chrome.ChromeDriverManager().install())
-    #my_driver = webdriver.Chrome('/chromedriver.exe',options=chrome_options)
+    my_driver = webdriver.Chrome('/chromedriver.exe',options=chrome_options)
     my_driver.implicitly_wait(10)
     #my_driver = webdriver.Remote()
     my_driver.get(url)
